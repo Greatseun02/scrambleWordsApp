@@ -5,8 +5,7 @@ export default function Header(){
                 <h1>Scramble by OT</h1>
                 <div>
                     <a><p>Home</p></a>
-                    <a><p>Scramble word</p></a>
-                    <a><p>Scrambled words</p></a>
+                    <a href="/"><p>History</p></a>
                 </div>
             </div>
         </>
