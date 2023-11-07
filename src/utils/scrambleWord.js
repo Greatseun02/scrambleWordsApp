@@ -1,12 +1,16 @@
 export default function scrambleWord(toScramble){
     let scrambled;
-    toScramble = toScramble.split(" ")
-    scrambled = toScramble
+    let preparedSentence = toScramble.split(" ")
+    scrambled = preparedSentence.map((word)=>scramble(word)).join(" ")
     return scrambled
 }
 
-function generateRandomNumber(){
+function scramble(word){
+    return word
+}
 
+function generateRandomNumber(){
+    
 }
 
 function ifRandomNumberIsUsed(){

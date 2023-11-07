@@ -1,23 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/header";
+import scrambleWord from "../utils/scrambleWord";
 
 export default function Scramble(){
     const [displayInputWord, setDisplayInputWord] = useState(true)
     const [displayScrambleWord, setDisplayScrambleWord] = useState(false)
+    const [toScramble, setToScramble] = useState("")
+    const [scrambled, setScrambled] = useState("")
+    useEffect(()=>{
+        setScrambled(()=>{
+            return scrambleWord(toScramble)
+        })
+    }, [toScramble])
     return(
         <>
             <Header/>
             <div>
                 {displayInputWord && <div>
-                    <form>
+                    <form onSubmit={(event)=>{
+                        event.preventDefault()
+                        setToScramble(event.target.wordToScramble.value)
+                        setDisplayInputWord(false)
+                        setDisplayScrambleWord(true)
+                    }}>
                         <label>Enter a word/sentence you would like to scramble:</label>
                         <input name="wordToScramble" placeholder="Enter" />
-                        <button onClick={
-                            ()=>{
-                                setDisplayInputWord(false)
-                                setDisplayScrambleWord(true)
-                            }
-                        }>Submit</button>
+                        <button type="submit"> Submit</button>
                     </form>
                 </div>}
 
@@ -25,12 +33,14 @@ export default function Scramble(){
                     <p>
                         Your word/sentence is: 
                     </p>
-                    <p>Hello</p>
+                    <p>
+                        {toScramble}
+                    </p>
                     <p>
                         The scrambled version is:
                     </p>
                     <p>
-                        World
+                        {scrambled}
                     </p>
                     <button onClick={
                         ()=>{
