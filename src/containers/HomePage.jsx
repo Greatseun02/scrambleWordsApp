@@ -6,7 +6,7 @@ export default function HomePage(){
             <Header />
             <div>
                 <p>This is an app that helps to scramble words.</p>
-                <a><button>Click on this to get started scrambling.</button></a> 
+                <a href="/scramble"><button>Click on this to get started scrambling.</button></a> 
             </div>
         </>
     )
