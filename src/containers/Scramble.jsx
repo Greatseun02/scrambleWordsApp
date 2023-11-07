@@ -1,18 +1,27 @@
+import { useState } from "react";
 import Header from "../components/header";
 
 export default function Scramble(){
+    const [displayInputWord, setDisplayInputWord] = useState(true)
+    const [displayScrambleWord, setDisplayScrambleWord] = useState(false)
     return(
         <>
             <Header/>
             <div>
-                <div>
+                {displayInputWord && <div>
                     <form>
                         <label>Enter a word/sentence you would like to scramble:</label>
                         <input name="wordToScramble" placeholder="Enter" />
-                        <button>Submit</button>
+                        <button onClick={
+                            ()=>{
+                                setDisplayInputWord(false)
+                                setDisplayScrambleWord(true)
+                            }
+                        }>Submit</button>
                     </form>
-                </div>
-                <div>
+                </div>}
+
+                {displayScrambleWord && <div>
                     <p>
                         Your word/sentence is: 
                     </p>
@@ -23,7 +32,13 @@ export default function Scramble(){
                     <p>
                         World
                     </p>
-                </div>
+                    <button onClick={
+                        ()=>{
+                            setDisplayInputWord(true)
+                            setDisplayScrambleWord(false)
+                        }
+                    }>Go back</button>
+                </div>}
             </div>
         </>
     )
