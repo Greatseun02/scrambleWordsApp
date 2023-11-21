@@ -16,7 +16,12 @@ const router = createBrowserRouter([
   {
     path: "/scramble",
     element: <Scramble />,
+  },
+  {
+    path:"/annoyed",
+    element: <>HEllo world</>
   }
+
 ]);
 
 
