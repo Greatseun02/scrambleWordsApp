@@ -1,17 +1,31 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import HomePage from './containers/HomePage'
 import Scramble from './containers/Scramble'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage/>,
+  },
+  {
+    path: "/scramble",
+    element: <Scramble />,
+  }
+]);
+
+
+    
 
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/scramble" element={<Scramble />} />
-        </Routes>
-      </Router>
+      <RouterProvider router={router} />
     </>
   )
 }
