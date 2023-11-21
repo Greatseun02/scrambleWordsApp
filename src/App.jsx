@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import HomePage from './containers/HomePage'
 import Scramble from './containers/Scramble'
 
@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="scramble" element={<Scramble />} />
+          <Route path="/scramble" element={<Scramble />} />
         </Routes>
       </Router>
     </>
