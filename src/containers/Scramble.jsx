@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/header";
 import scrambleWord from "../utils/scrambleWord";
+import React from "react";
 
 export default function Scramble(){
     const [displayInputWord, setDisplayInputWord] = useState(true)
